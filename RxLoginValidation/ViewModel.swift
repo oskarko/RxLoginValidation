@@ -10,13 +10,13 @@ import Foundation
 import RxSwift
 
 struct ViewModel {
-    var usernameText = BehaviorSubject<String>(value: "") // default value is empty string
-    var passwordText = BehaviorSubject<String>(value: "")
+    var usernameText = PublishSubject<String>()
+    var passwordText = PublishSubject<String>()
 
-    var isValid: Observable<Bool> {
+    func isValid() -> Observable<Bool> {
         return Observable.combineLatest(usernameText.asObservable(),
-                                        passwordText.asObservable()) { username, password in
-            username.count >= 4 && password.count >= 4
-        }
+                                        passwordText.asObservable()).map { username, password in
+                                            username.count >= 4 && password.count >= 4
+        }.startWith(false)
     }
 }

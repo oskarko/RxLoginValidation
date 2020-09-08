@@ -23,14 +23,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        _ = usernameTextField.rx.text.map { $0 ?? ""}.bind(to: viewModel.usernameText)
-        _ = passwordTextField.rx.text.map { $0 ?? ""}.bind(to: viewModel.passwordText)
+        usernameTextField.becomeFirstResponder()
+
+        usernameTextField.rx.text.map { $0 ?? ""}
+            .bind(to: viewModel.usernameText).disposed(by: disposeBag)
+        passwordTextField.rx.text.map { $0 ?? ""}
+            .bind(to: viewModel.passwordText).disposed(by: disposeBag)
 
         // method 1
-        _ = viewModel.isValid.bind(to: loginButton.rx.isEnabled)
+        viewModel.isValid().bind(to: loginButton.rx.isEnabled).disposed(by: disposeBag)
+
+        viewModel.isValid().map { $0 ? 1 : 0.1 }
+            .bind(to: loginButton.rx.alpha).disposed(by: disposeBag)
 
         // method 2
-        viewModel.isValid.subscribe(
+        viewModel.isValid().subscribe(
             onNext: { isValid in
                 // We can enable/disable the button here as well
                 self.statusLabel.text = isValid ? "Button enabled" : "Button NOT enabled"
