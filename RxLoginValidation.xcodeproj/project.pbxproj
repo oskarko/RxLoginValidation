@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		E25FB1AE2507C39600653C5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E25FB1AC2507C39600653C5C /* Main.storyboard */; };
 		E25FB1B02507C39800653C5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E25FB1AF2507C39800653C5C /* Assets.xcassets */; };
 		E25FB1B32507C39800653C5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E25FB1B12507C39800653C5C /* LaunchScreen.storyboard */; };
+		E25FB1BB2507C7BA00653C5C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25FB1BA2507C7BA00653C5C /* ViewModel.swift */; };
 		ED26F69576752EE7FD42FC55 /* Pods_RxLoginValidation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F792D4F8AB08FFABA8A4C7D3 /* Pods_RxLoginValidation.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		E25FB1AF2507C39800653C5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E25FB1B22507C39800653C5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E25FB1B42507C39800653C5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E25FB1BA2507C7BA00653C5C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		F792D4F8AB08FFABA8A4C7D3 /* Pods_RxLoginValidation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxLoginValidation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -48,7 +50,6 @@
 				0699FF50319CD7640E7352DE /* Pods-RxLoginValidation.debug.xcconfig */,
 				3D59A5D1C5E80E0D24C7FB3F /* Pods-RxLoginValidation.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -84,6 +85,7 @@
 				E25FB1A62507C39600653C5C /* AppDelegate.swift */,
 				E25FB1A82507C39600653C5C /* SceneDelegate.swift */,
 				E25FB1AA2507C39600653C5C /* ViewController.swift */,
+				E25FB1BA2507C7BA00653C5C /* ViewModel.swift */,
 				E25FB1AC2507C39600653C5C /* Main.storyboard */,
 				E25FB1AF2507C39800653C5C /* Assets.xcassets */,
 				E25FB1B12507C39800653C5C /* LaunchScreen.storyboard */,
@@ -209,6 +211,7 @@
 			files = (
 				E25FB1AB2507C39600653C5C /* ViewController.swift in Sources */,
 				E25FB1A72507C39600653C5C /* AppDelegate.swift in Sources */,
+				E25FB1BB2507C7BA00653C5C /* ViewModel.swift in Sources */,
 				E25FB1A92507C39600653C5C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

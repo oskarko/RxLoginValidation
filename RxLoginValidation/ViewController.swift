@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ViewController: UIViewController {
 
@@ -15,10 +17,27 @@ class ViewController: UIViewController {
     @IBOutlet private weak var loginButton: UIButton!
     @IBOutlet private weak var statusLabel: UILabel!
 
+    private var viewModel = ViewModel()
+    private var disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        _ = usernameTextField.rx.text.map { $0 ?? ""}.bind(to: viewModel.usernameText)
+        _ = passwordTextField.rx.text.map { $0 ?? ""}.bind(to: viewModel.passwordText)
+
+        // method 1
+        _ = viewModel.isValid.bind(to: loginButton.rx.isEnabled)
+
+        // method 2
+        viewModel.isValid.subscribe(
+            onNext: { isValid in
+                // We can enable/disable the button here as well
+                self.statusLabel.text = isValid ? "Button enabled" : "Button NOT enabled"
+                self.statusLabel.textColor = isValid ? .systemGreen : .red
+        }, onError: { error in
+            print("Something was wrong! Look at here: \(error.localizedDescription)")
+        }).disposed(by: disposeBag)
     }
 
 
